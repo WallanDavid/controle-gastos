@@ -47,3 +47,6 @@ src/
 ├── model          # Entidades JPA
 ├── repository     # Interfaces JPA
 ├── service        # Regras de negócio
+
+
+GitHub: @WallanDavid
