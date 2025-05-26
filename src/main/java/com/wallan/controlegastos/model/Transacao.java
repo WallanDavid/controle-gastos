@@ -1,27 +1,55 @@
-package com.wallan.controlegastos.service;
+package com.wallan.controlegastos.model;
 
-import com.wallan.controlegastos.model.Transacao;
-import com.wallan.controlegastos.repository.TransacaoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
-import java.util.List;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
-@Service
-public class TransacaoService {
+@Entity
+public class Transacao {
 
-    @Autowired
-    private TransacaoRepository repository;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public List<Transacao> listarTodas() {
-        return repository.findAll();
-    }
+    @NotBlank(message = "Descrição é obrigatória")
+    @Size(max = 100, message = "Descrição deve ter no máximo 100 caracteres")
+    private String descricao;
 
-    public Transacao salvar(Transacao transacao) {
-        return repository.save(transacao);
-    }
+    @NotNull(message = "Valor é obrigatório")
+    @DecimalMin(value = "0.01", inclusive = true, message = "Valor deve ser maior que zero")
+    private BigDecimal valor;
 
-    public void deletar(Long id) {
-        repository.deleteById(id);
-    }
+    @NotBlank(message = "Tipo é obrigatório")
+    @Pattern(regexp = "^(RECEITA|DESPESA)$", message = "Tipo deve ser RECEITA ou DESPESA")
+    private String tipo;
+
+    @NotNull(message = "Data é obrigatória")
+    @PastOrPresent(message = "Data não pode estar no futuro")
+    private LocalDate data;
+
+    // Getters e Setters
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
+
+    public BigDecimal getValor() { return valor; }
+    public void setValor(BigDecimal valor) { this.valor = valor; }
+
+    public String getTipo() { return tipo; }
+    public void setTipo(String tipo) { this.tipo = tipo; }
+
+    public LocalDate getData() { return data; }
+    public void setData(LocalDate data) { this.data = data; }
 }
