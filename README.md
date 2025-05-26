@@ -1,5 +1,10 @@
 ![Coverage](https://img.shields.io/badge/Coverage-4%25-red)
 
+## 🔎 Relatório de Cobertura de Testes
+
+<img src="./docs/jacoco-coverage.png" alt="Cobertura Jacoco" width="100%">
+
+
 Controle de Gastos - API REST
 API REST em Java com Spring Boot para controle financeiro pessoal. O projeto permite registrar, atualizar, listar, excluir e consultar transações financeiras, categorizadas por tipo, data, valor e descrição.
 
