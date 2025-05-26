@@ -55,5 +55,56 @@ Imagem publicada:
 
 http://localhost:8080/swagger-ui/index.html
 
+
+![Build Status](https://github.com/WallanDavid/controle-gastos/actions/workflows/docker.yml/badge.svg)
+![Docker Pulls](https://img.shields.io/docker/pulls/bobwallan/controle-gastos)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+### 📊 Cobertura de Testes
+
+![Cobertura Jacoco](docs/jacoco-coverage.png)
+
+### 🖼️ Print da aplicação rodando
+
+![App Running](docs/app-running.png)
+
+
+### 🚀 Deploy com Docker
+
+```bash
+docker pull bobwallan/controle-gastos:latest
+
+
+---
+
+### ✅ 2. **Subir o frontend no Netlify**
+
+**A) Acesse:** [https://app.netlify.com](https://app.netlify.com)
+
+**B) Passos:**
+1. Clique em **"Add new site" > "Import an existing project"**.
+2. Selecione o GitHub como origem e conecte sua conta.
+3. Escolha o repositório `controle-gastos-frontend`.
+4. Configure:
+   - **Branch:** `main`
+   - **Build command:** `npm run build`
+   - **Publish directory:** `dist` (ou `build`, depende do framework — React normalmente usa `build`).
+5. Clique em “Deploy site”.
+
+**C) Depois de publicado:**
+- Vá em **"Site settings" > Domain management** e personalize o nome do subdomínio.
+
+---
+
+Quando terminar essas etapas, você vai ter:
+
+✅ Backend Spring Boot com Docker e CI/CD  
+✅ Frontend React no ar via Netlify  
+✅ README com prints e badges  
+✅ Projeto fullstack **pronto pra impressionar qualquer recrutador**  
+
+Se quiser, posso te ajudar a formatar o README inteiro agora. Só pedir!
+
+
 💼 Autor
 Desenvolvido por Wallan Peixoto @bobwallan como parte do portfólio profissional. Projeto 100% open-source e didático
