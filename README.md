@@ -1,3 +1,5 @@
+![Coverage](https://img.shields.io/badge/Coverage-4%25-red)
+
 Controle de Gastos - API REST
 API REST em Java com Spring Boot para controle financeiro pessoal. O projeto permite registrar, atualizar, listar, excluir e consultar transações financeiras, categorizadas por tipo, data, valor e descrição.
 
